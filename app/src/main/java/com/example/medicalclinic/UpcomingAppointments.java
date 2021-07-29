@@ -1,7 +1,7 @@
 package com.example.medicalclinic;
 
 import java.util.List;
-import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class UpcomingAppointments implements AppointmentList, AppointmentListDelete{
     List<Appointment> upcoming;
@@ -16,7 +16,7 @@ public class UpcomingAppointments implements AppointmentList, AppointmentListDel
     }
 
     @Override
-    public void delete() {
+    public void delete(String username) {
 
     }
 

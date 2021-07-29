@@ -12,7 +12,7 @@ public class AppointmentSlot implements Appointment{
     }
 
     @Override
-    public Date converter(Date d) throws ParseException {
+    public String converter(Date d) throws ParseException {
         return null;
     }
 }

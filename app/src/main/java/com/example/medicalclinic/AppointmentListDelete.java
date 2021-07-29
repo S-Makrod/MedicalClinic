@@ -1,5 +1,5 @@
 package com.example.medicalclinic;
 
 public interface AppointmentListDelete {
-    void delete();
+    void delete(String username);
 }

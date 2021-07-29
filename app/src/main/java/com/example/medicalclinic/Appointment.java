@@ -27,5 +27,5 @@ public interface Appointment {
     final SimpleDateFormat dateFormatter = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
     final SimpleDateFormat dateParser = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
 
-    Date converter(Date d) throws ParseException;
+    String converter(Date d) throws ParseException;
 }

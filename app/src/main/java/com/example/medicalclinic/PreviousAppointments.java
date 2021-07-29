@@ -1,7 +1,7 @@
 package com.example.medicalclinic;
 
 import java.util.List;
-import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class PreviousAppointments implements AppointmentList{
     List<Appointment> previous;
