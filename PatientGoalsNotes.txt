@@ -1,0 +1,275 @@
+import java.util.ArrayList;
+import java.util.List;
+
+/*
+ * I though abstract classes are good here vs interface since we have common data fields between doctors and patients
+ */
+
+//abstract class User{
+//	int ID; //Decided by static counter so IDs will be 1,2,3,... to keep unique between user
+//	String name, password, gender;
+//	
+//	/*
+//	 * Two choices here either we put validation so that user names are distinct OR 
+//	 * auto set to ID but convert ID to string
+//	 * 
+//	 * If we do option one there is no need for the ID parameter
+//	 */
+//	String username; 
+//	
+//	//ADD GETTER AND SETTER
+//}
+//
+//abstract class PatientUser extends User{
+//	String date_of_birth;		//Can be either date like Java.Date() or string
+//	List upcoming_appointments; //List of dates like Java.Date()
+//	List previous_appointments; //List of dates like Java.Date()
+//	List doctors;				//List of doctor id and name no need to have other info
+//	
+//	public abstract void book(int DocID); //Book appointments
+//		
+//	public abstract void list(); //List upcoming appointments UNSURE OF IMPLEMENTATION
+//	
+//	//ADD GETTERS AND SETTERS
+//}
+//
+//abstract class DoctorUser extends User{
+//	List upcoming_appointments;	//List of dates like Java.Date()
+//	List specializations;		//List of string
+//	List weekly_availabilities; //List of dates like Java.Date()
+//	List patients;				//List of patient id and name no need to have other info
+//	
+//	public abstract void list(); //List upcoming appointments UNSURE OF IMPLEMENTATION
+//	
+//	//ADD GETTERS AND SETTERS
+//}
+
+interface HospitalList{
+	public void add();
+	public void delete();
+}
+
+interface HospitalListPerson{
+	public void update(String name);	
+}
+
+class HLPUser implements HospitalListPerson{
+	int ID;
+	String name;
+	@Override
+	public void update(String name) {
+		// TODO Auto-generated method stub
+		
+	}
+}
+
+
+class PatientList implements HospitalList{
+	List<HLPUser> doctor_list = new ArrayList<HLPUser>();
+	@Override
+	public void add() {
+		// TODO Auto-generated method stub
+		
+	}
+}
+
+class DoctorList implements HospitalList{
+	List<HLPUser> patient_list = new ArrayList<HLPUser>();
+	@Override
+	public void add() {
+		// TODO Auto-generated method stub
+		
+	}
+}
+
+//ON ANY OnCreate(); DO GENERAL LAYOUT STUFF
+
+Main Activity{
+	OnCreate();
+	
+	patient(); //go to patient entry activity
+	doctor(); //undefined currently
+}
+
+Patient Entry Activity{
+	OnCreate();
+	
+	back(); //go back to main activity
+	login(); //Define button properties will head to login activity
+	signup(); //Define button properties will head to sign up activity
+}
+
+Sign Up Activity{
+	OnCreate();
+	
+	back(); //go back to patient entry activity
+	
+	/*
+	 * We validate data in this function so the gist is patients enter data
+	 * Pull the data from the text boxes and go to a method validate
+	 * if validate returns true make new patient with patient constructor and update the db then go to the 
+	 * patient entry activity
+	 * if false do nothing
+	 */
+	signup();
+	
+	
+	
+	/*
+	 *General type checking, verifying unique user name etc 
+	 *if false we will print an error message and leave it for the user to fix
+	 */
+	boolean validate();
+}
+
+Login Activity{
+	OnCreate();
+	
+	back(); //go back to patient entry activity
+	
+	/*
+	 * We validate data in this function so the gist is patients enter data
+	 * Pull the data from the text boxes and go to a method validate
+	 * if validate returns true make then that means the db recognizes the patient go to Patient Activity with 
+	 * username stored
+	 * if false do nothing
+	 */
+	signin();
+	
+	/*
+	 *Use user name as key to look at patients in db, if found we good then check if the password 
+	 *matches if matches then return true if at any point something fails we return false after we do the following
+	 *if false we will print an error message and leave it for the user to fix
+	 */
+	validate();
+}
+
+Patient Activity{
+	OnCreate; 
+	
+	/*
+	 * Clear any stored data in bundle and go back to Patient Entry Activity
+	 */
+	logout();
+	
+	/*
+	 *Navigate to book doctor activity, user name is still saved here 
+	 */
+	book();
+}
+
+Book Doctor Activity{
+	OnCreate();
+	
+	back(); //go back to patient activity
+	
+	/*
+	 * If selected then filter the list using db filter
+	 */
+	filter();
+	
+	/*
+	 * Take doctor id save it in bundle, username is still saved, move to Availability Activity
+	 */
+	book();
+}
+
+Availability Activity{
+	OnCreate();
+
+	back(); //go back to book doctor activity
+	
+	/*
+	 * Use radio buttons to select an appointment
+	 * Once confirmed then update the db accordingly
+	 */
+	book();
+}
+
+interface Database{
+	final databaseref ref = ...;
+	public boolean search(int ID);
+	public void add(User u);
+	public void delete(int ID);
+	public void update_appointment(int ID);
+}
+
+class PatientDB implements Database{ //SINGLETON IMPLEMENTATION
+	final String s = "patients";
+	@Override
+	public boolean search(int ID) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void add(User u) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete(int ID) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void update_appointment(int ID) {
+		// TODO Auto-generated method stub
+		//Pull the time compare to each appointment and move the ones you have to move
+	}
+	
+}
+
+class DoctorDB implements Database{ //SINGLETON IMPLEMENTATION
+	final String s = "doctors";
+	@Override
+	public boolean search(int ID) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void add(User u) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete(int ID) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void update_appointment(int ID) {
+		// TODO Auto-generated method stub
+		//Pull the time compare to each appointment and move the ones you have to move
+	}
+	
+}
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class Test {
+	public static void main(String [] args) throws InterruptedException, ParseException {
+		Date d = new Date(System.currentTimeMillis());
+		
+		SimpleDateFormat dateFormatter = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+		
+		System.out.println(d.toString());
+		System.out.println(dateFormatter.format(d));
+		
+		 // Format for input
+		SimpleDateFormat dateParser = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+		// Parsing the date
+		
+		
+		Thread.sleep(5000);
+		Date y = dateParser.parse(dateFormatter.format(d));
+		System.out.println(y);
+		System.out.println(dateFormatter.format(y));
+}
