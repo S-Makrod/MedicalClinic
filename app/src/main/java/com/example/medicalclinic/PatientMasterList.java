@@ -13,6 +13,7 @@ public class PatientMasterList implements MasterList<PatientUser>{
 
     @Override
     public PatientUser get(String username) {
-        return null;
+        LoadUser l = new PatientLoader();
+        return (PatientUser)l.get();
     }
 }

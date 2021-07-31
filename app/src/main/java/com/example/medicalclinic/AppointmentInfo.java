@@ -6,4 +6,6 @@ public abstract class AppointmentInfo {
 
     public abstract String getUsername();
     public abstract String getName();
+    public abstract void setUsername(String username);
+    public abstract void setName(String name);
 }

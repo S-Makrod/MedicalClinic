@@ -6,8 +6,8 @@ import java.util.ArrayList;
 public class Patient extends PatientUser{
     String name, password, gender, username;
     String date_of_birth;		//Can be either date like Java.Date() or string
-    List<Appointment> upcoming_appointments; //List of dates like Java.Date()
-    List<Appointment> previous_appointments; //List of dates like Java.Date()
+    AppointmentListPro upcoming_appointments; //List of dates like Java.Date()
+    AppointmentList previous_appointments; //List of dates like Java.Date()
     List<AppointmentInfo> doctors;				//List of doctor id and name no need to have other info
 
     public Patient(String name, String password, String gender, String username, String date_of_birth){
@@ -17,24 +17,31 @@ public class Patient extends PatientUser{
         this.username = username;
         this.date_of_birth = date_of_birth;
 
-        upcoming_appointments = new ArrayList<>();
-        previous_appointments = new ArrayList<>();
+        upcoming_appointments = new UpcomingAppointments();
+        previous_appointments = new PreviousAppointments();
         doctors = new ArrayList<>();
     }
 
     @Override
-    public void book(int DocID) {
-
-    }
-
-    @Override
-    public void list() {
-
+    public void book(String doc_username) {
+        //JUST ADD TO UPCOMING
     }
 
     @Override
     public void update_appointments() {
+        /*
+        SOMETHING LIKE THE FOLLOWING
+        List<Appointment> a = upcoming_appointments.getUpcoming();
 
+        for(Appointment x: a) {
+            DO STUFF
+            if(...){
+                upcoming_appointments.delete(x);
+                previous_appointments.add(x);
+            }
+            DO MORE STUFF
+        }
+        */
     }
 
     @Override
@@ -88,22 +95,22 @@ public class Patient extends PatientUser{
     }
 
     @Override
-    public List<Appointment> getUpcoming_appointments() {
+    public AppointmentListPro getUpcoming_appointments() {
         return upcoming_appointments;
     }
 
     @Override
-    public void setUpcoming_appointments(List<Appointment> upcoming_appointments) {
+    public void setUpcoming_appointments(AppointmentListPro upcoming_appointments) {
         this.upcoming_appointments = upcoming_appointments;
     }
 
     @Override
-    public List<Appointment> getPrevious_appointments() {
+    public AppointmentList getPrevious_appointments() {
         return previous_appointments;
     }
 
     @Override
-    public void setPrevious_appointments(List<Appointment> previous_appointments) {
+    public void setPrevious_appointments(AppointmentList previous_appointments) {
         this.previous_appointments = previous_appointments;
     }
 

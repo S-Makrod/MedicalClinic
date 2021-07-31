@@ -7,7 +7,7 @@ public class DoctorInfo implements AppointmentList{
     List<AppointmentInfo> a;
 
     @Override
-    public void add() {
+    public void add(Appointment a) {
 
     }
 

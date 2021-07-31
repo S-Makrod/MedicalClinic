@@ -28,4 +28,12 @@ public interface Appointment {
     final SimpleDateFormat dateParser = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
 
     String converter(Date d) throws ParseException;
+
+    String getDate();
+
+    void setDate(String date);
+
+    AppointmentInfo getA();
+
+    void setA(AppointmentInfo a);
 }

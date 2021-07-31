@@ -1,6 +1,8 @@
 package com.example.medicalclinic;
 
+import java.util.List;
+
 public interface AppointmentList {
-    void add();
+    void add(Appointment a);
     void list();
 }
