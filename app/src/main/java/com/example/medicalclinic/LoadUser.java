@@ -1,5 +1,5 @@
 package com.example.medicalclinic;
 
 public interface LoadUser<G> {
-    G get();
+    G get(String username);
 }

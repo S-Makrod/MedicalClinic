@@ -13,7 +13,15 @@ public class PatientMasterList implements MasterList<PatientUser>{
 
     @Override
     public PatientUser get(String username) {
+
+        /* FOR DENISE
+        Instead of returning null at the end just replace it with this code
         LoadUser l = new PatientLoader();
-        return (PatientUser)l.get();
+        return (PatientUser)l.get(username);
+
+        Similar stuff for DoctorUser get() in DoctorMasterList
+        */
+
+        return null;
     }
 }
