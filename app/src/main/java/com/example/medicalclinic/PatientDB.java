@@ -35,6 +35,7 @@ public class PatientDB implements Database<PatientUser>{
         return isRecordExist;
     }
 
+    // add patient to database
     @Override
     public void add(PatientUser patient) {
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference();

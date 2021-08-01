@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    // When user presses button
     public void patientButtonOnClick(android.view.View view)
     {
         Intent intent=new Intent(this,PatientLoginActivity.class);

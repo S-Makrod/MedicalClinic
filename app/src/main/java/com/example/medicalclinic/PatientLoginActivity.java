@@ -43,7 +43,7 @@ public class PatientLoginActivity extends AppCompatActivity {
                     Toast.makeText(PatientLoginActivity.this,"Invalid UserName or Password!",Toast.LENGTH_LONG).show();
                 }
             }
-            // Hi from Nimra
+
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
