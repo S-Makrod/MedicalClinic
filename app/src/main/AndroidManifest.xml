@@ -13,7 +13,8 @@
         <activity android:name=".PatientBookDoctorActivity" />
         <activity android:name=".PatientMainActivity" />
         <activity android:name=".PatientLoginActivity" />
-        <activity android:name=".PatientSignUpActivity" />
+        <activity android:name=".PatientSignUpActivity" 
+			android:parentActivityName=".PatientLoginActivity" />
         <activity android:name=".PatientEntryActivity" />
         <activity android:name=".MainActivity" android:exported="true">
             <intent-filter>
