@@ -1,5 +1,7 @@
 package com.example.medicalclinic;
 
+import java.text.ParseException;
+
 public abstract class User {
     String name, password, gender, username;
 
@@ -19,5 +21,5 @@ public abstract class User {
 
     public abstract void setUsername(String username);
 
-    public abstract void update_appointments();
+    public abstract void update_appointments(String patient_username) throws ParseException;
 }

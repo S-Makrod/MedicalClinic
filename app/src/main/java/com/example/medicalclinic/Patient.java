@@ -1,7 +1,17 @@
 package com.example.medicalclinic;
 
+import android.util.Log;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.text.ParseException;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Patient extends PatientUser{
     String name, password, gender, username;
@@ -9,6 +19,10 @@ public class Patient extends PatientUser{
     AppointmentListPro upcoming_appointments; //List of dates like Java.Date()
     AppointmentList previous_appointments; //List of dates like Java.Date()
     List<AppointmentInfo> doctors;				//List of doctor id and name no need to have other info
+
+    public Patient() {
+
+    }
 
     public Patient(String name, String password, String gender, String username, String date_of_birth){
         this.name = name;
@@ -22,27 +36,96 @@ public class Patient extends PatientUser{
         doctors = new ArrayList<>();
     }
 
-    @Override
-    public void book(String doc_username) {
-        //JUST ADD TO UPCOMING
-    }
+    /*@Override
+    public void book(String doc_username, Date d) throws ParseException {
 
-    @Override
-    public void update_appointments() {
-        /*
-        SOMETHING LIKE THE FOLLOWING
-        List<Appointment> a = upcoming_appointments.getUpcoming();
+        AppointmentInfo newAppointmentInfo = new AppointmentMeeting(doc_username);
+        AppointmentSlot newAppointment = new AppointmentSlot(doc_username, d);
 
-        for(Appointment x: a) {
-            DO STUFF
-            if(...){
-                upcoming_appointments.delete(x);
-                previous_appointments.add(x);
+        boolean shouldAdd = true;
+        for (AppointmentInfo info: doctors) {
+
+            if (info.getUsername() == doc_username) {
+                shouldAdd = false;
             }
-            DO MORE STUFF
         }
-        */
+
+        if (shouldAdd) {
+            doctors.add(newAppointmentInfo);
+        }
+
+        upcoming_appointments.add(newAppointment);
+        this.update_appointments();
+    }*/
+
+    @Override
+    public void book(String doc_username, Date d, String patient_username) throws ParseException {
+
+        AppointmentInfo newAppointmentInfo = new AppointmentMeeting(doc_username);
+        AppointmentSlot newAppointment = new AppointmentSlot(doc_username, d);
+
+
+        Date current = new Date(System.currentTimeMillis());
+        if (current.after(d)) {
+            Database.ref.child("patients").child(patient_username).child("previous_appointments").child(newAppointment.getDate()).setValue(newAppointment);
+            Database.ref.child("patients").child(patient_username).child("doctors").child(newAppointmentInfo.getUsername()).setValue(newAppointmentInfo.getUsername());
+        }
+        else {
+            Database.ref.child("patients").child(patient_username).child("upcoming_appointments").child(newAppointment.getDate()).setValue(newAppointment);
+        }
+
     }
+
+    @Override
+    public void update_appointments(String patient_username) throws ParseException{
+
+        Date current = new Date(System.currentTimeMillis());
+        DatabaseReference mPostReference = FirebaseDatabase.getInstance().getReference("patients/" + patient_username + "/upcoming_appointments");
+        ValueEventListener postListener = new ValueEventListener() {
+
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot child:dataSnapshot.getChildren()) {
+                    AppointmentSlot post = child.getValue(AppointmentSlot.class);
+
+                    try {
+                        if (current.after(Appointment.dateParser.parse(post.getDate()))) {
+                            Database.ref.child("patients").child(patient_username).child("previous_appointments").child(post.getDate()).setValue(post);
+                            Database.ref.child("patients").child(patient_username).child("doctors").child(post.a.getUsername()).setValue(post.a.getUsername());
+                            child.getRef().removeValue();
+                        }
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.w("warning", "loadPost:onCancelled", databaseError.toException());
+            }
+        };
+        mPostReference.addValueEventListener(postListener);
+
+    }
+
+    /*@Override
+    public void update_appointments() throws ParseException{
+
+        Date current = new Date(System.currentTimeMillis());
+        List<Appointment> upcoming_appointments_copy = upcoming_appointments.getUpcoming();
+
+        for (Appointment appointment: upcoming_appointments_copy) {
+
+            if (current.after(Appointment.dateParser.parse(appointment.getDate()))) {
+
+                previous_appointments.add(appointment);
+                upcoming_appointments.delete(appointment);
+            }
+        }
+
+        Database.ref.child("patients").child(this.getUsername()).setValue(this);
+    }*/
 
     @Override
     public String getName() {
