@@ -4,6 +4,10 @@ public class AppointmentMeeting extends AppointmentInfo{
     String username;
     String name;
 
+    AppointmentMeeting(){
+
+    }
+
     public AppointmentMeeting(String username){
         this.username = username;
         //Get name from database...

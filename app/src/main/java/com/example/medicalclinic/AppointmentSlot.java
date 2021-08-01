@@ -7,14 +7,18 @@ public class AppointmentSlot implements Appointment{
     String date;
     AppointmentInfo a;
 
-    public AppointmentSlot(String username, Date d) throws ParseException {
+    public AppointmentSlot(){
+
+    }
+
+    public AppointmentSlot(String username, Date d) {
         date = converter(d);
         a = new AppointmentMeeting(username);
     }
 
     @Override
-    public String converter(Date d) throws ParseException {
-        return null;
+    public String converter(Date d) {
+        return dateFormatter.format(d);
     }
 
     @Override
