@@ -24,8 +24,8 @@ import java.util.Date;
 		System.out.println(dateFormatter.format(y));
  */
 public interface Appointment {
-    final SimpleDateFormat dateFormatter = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
-    final SimpleDateFormat dateParser = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+    final SimpleDateFormat dateFormatter = new SimpleDateFormat("MM-dd-yyyy HH:mm:ss");
+    final SimpleDateFormat dateParser = new SimpleDateFormat("MM-dd-yyyy HH:mm:ss");
 
     String converter(Date d) throws ParseException;
 
@@ -33,7 +33,7 @@ public interface Appointment {
 
     void setDate(String date);
 
-    AppointmentInfo getA();
+    AppointmentInfo getDoctor();
 
-    void setA(AppointmentInfo a);
+    void setDoctor(AppointmentMeeting a);
 }

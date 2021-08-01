@@ -4,7 +4,7 @@ public class AppointmentMeeting extends AppointmentInfo{
     String username;
     String name;
 
-    AppointmentMeeting(){
+    public AppointmentMeeting() {
 
     }
 
@@ -13,14 +13,17 @@ public class AppointmentMeeting extends AppointmentInfo{
         //Get name from database...
     }
 
-    @Override
-    public String getUsername() {
-        return username;
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
 
     @Override
@@ -28,8 +31,4 @@ public class AppointmentMeeting extends AppointmentInfo{
         this.username = username;
     }
 
-    @Override
-    public void setName(String name) {
-        this.name = name;
-    }
 }

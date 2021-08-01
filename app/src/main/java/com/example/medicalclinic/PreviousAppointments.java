@@ -8,11 +8,12 @@ public class PreviousAppointments implements AppointmentList{
 
     public PreviousAppointments(){
 
+        previous = new LinkedList<>();
     }
 
     @Override
     public void add(Appointment a) {
-
+        previous.add(a);
     }
 
     @Override

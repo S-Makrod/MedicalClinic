@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class AppointmentSlot implements Appointment{
     String date;
-    AppointmentInfo a;
+    AppointmentMeeting doctor;
 
     public AppointmentSlot(){
 
@@ -13,7 +13,7 @@ public class AppointmentSlot implements Appointment{
 
     public AppointmentSlot(String username, Date d) {
         date = converter(d);
-        a = new AppointmentMeeting(username);
+        doctor = new AppointmentMeeting(username);
     }
 
     @Override
@@ -32,12 +32,12 @@ public class AppointmentSlot implements Appointment{
     }
 
     @Override
-    public AppointmentInfo getA() {
-        return a;
+    public AppointmentInfo getDoctor() {
+        return doctor;
     }
 
     @Override
-    public void setA(AppointmentInfo a) {
-        this.a = a;
+    public void setDoctor(AppointmentMeeting a) {
+        this.doctor = a;
     }
 }

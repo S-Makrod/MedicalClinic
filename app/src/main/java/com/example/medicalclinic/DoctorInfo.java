@@ -6,12 +6,12 @@ import java.util.ArrayList;
 public class DoctorInfo implements AppointmentList{
     List<AppointmentInfo> a;
 
-    @Override
+    //@Override
     public void add(Appointment a) {
 
     }
 
-    @Override
+    //@Override
     public void list() {
 
     }

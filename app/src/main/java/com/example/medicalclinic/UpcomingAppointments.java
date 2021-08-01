@@ -8,16 +8,17 @@ public class UpcomingAppointments extends AppointmentListPro{
 
     public UpcomingAppointments(){
 
+        upcoming = new LinkedList<>();
     }
 
     @Override
     public void add(Appointment a) {
-
+        upcoming.add(a);
     }
 
     @Override
     public void delete(Appointment a) {
-
+        upcoming.remove(a);
     }
 
     @Override
