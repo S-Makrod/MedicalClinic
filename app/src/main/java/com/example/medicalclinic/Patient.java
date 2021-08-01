@@ -76,6 +76,11 @@ public class Patient extends PatientUser{
 
     }
 
+    public Patient()
+    {
+
+    }
+
     @Override
     public void update_appointments(String patient_username) throws ParseException{
 
