@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,17 +31,27 @@ public class PatientLoginActivity extends AppCompatActivity {
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference ref=database.getReference("patients");
-        ref.child(userName).addValueEventListener(new ValueEventListener() {
+
+        ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                Patient patient = dataSnapshot.getValue(Patient.class);
-                if(patient.getUsername().equals(userName) && patient.getPassword().equals(password))
-                {
 
-                    Intent intent=new Intent(PatientLoginActivity.this,PatientMainActivity.class);
-                    startActivity(intent);
-                } else {
-                    Toast.makeText(PatientLoginActivity.this,"Invalid UserName or Password!",Toast.LENGTH_LONG).show();
+                // Check if entered username is a registered user
+                PatientDB patientDB = new PatientDB();
+                if (patientDB.search(userName) == false) {
+                    Toast.makeText(PatientLoginActivity.this,"Invalid Username!",Toast.LENGTH_LONG).show();
+                }
+                else {
+                    Patient patient = dataSnapshot.getValue(Patient.class);
+                    String patient_pass = dataSnapshot.child(userName).child("password").getValue(String.class);
+                    Log.i("info", patient_pass);
+                    if(patient_pass.equals(password))
+                    {
+                        Intent intent=new Intent(PatientLoginActivity.this,PatientMainActivity.class);
+                        startActivity(intent);
+                    } else {
+                        Toast.makeText(PatientLoginActivity.this,"Invalid Username or Password!",Toast.LENGTH_LONG).show();
+                    }
                 }
             }
 

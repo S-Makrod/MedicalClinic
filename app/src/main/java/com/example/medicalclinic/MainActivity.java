@@ -15,10 +15,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
-        PatientUser p = new Patient("Julie McCarthy", "asdfgh123", "Female", "JulieM", "Jan 1st 1994");
-        ref.child("patients").child(p.getUsername()).setValue(p);
-
     }
 
     // When user presses button
