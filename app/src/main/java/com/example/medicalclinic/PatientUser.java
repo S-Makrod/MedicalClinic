@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Date;
 
 public abstract class PatientUser extends User {
+    String name, password, gender, username;
     String date_of_birth;                //Can be either date like Java.Date() or string
     //AppointmentListPro upcoming_appointments; //List of dates like Java.Date()
     //AppointmentList previous_appointments; //List of dates like Java.Date()
