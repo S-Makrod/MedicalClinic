@@ -1,0 +1,3 @@
+1. As a doctor I want to log in so that I can see the doctors screen
+2. As a doctor I want to see my schedule for the week so that I can see when I have appointments 
+3. As a doctor I want to be able to see patient details when I click on an upcoming appointment
