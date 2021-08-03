@@ -41,11 +41,11 @@ public class PatientMainActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 String patient_name = dataSnapshot.child("patients").child(patient_username).child("name").getValue().toString();
-                patient_display.setText(patient_name); // Display patient name
+                patient_display.setText(patient_name);
 
                 Patient patient_update = new Patient();
                 try {
-                    patient_update.update_appointments(patient_username); //Replace with patient_username
+                    patient_update.update_appointments(patient_username);
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
@@ -55,7 +55,7 @@ public class PatientMainActivity extends AppCompatActivity {
                 for (DataSnapshot child:dataSnapshot.child("patients").child(patient_username).child("upcoming_appointments").getChildren()) {
                     AppointmentSlot post = child.getValue(AppointmentSlot.class);
                     String doctorUsername = post.doctor.getUsername();
-                    String doc = dataSnapshot.child("doctors").child(doctorUsername).child("name").getValue().toString();
+                    String doc = dataSnapshot.child("doctors").child(doctorUsername).child("name").getValue ().toString();
                     appointment_list += "Doctor: Dr. " + doc + "\nDate: " + post.getDate() + "\n\n";
                 }
 
@@ -78,8 +78,8 @@ public class PatientMainActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String patient_username = intent.getStringExtra(PatientLoginActivity.USERNAME_INTENT);
 
-        Intent sendPatient = new Intent(this, FilterDoctorActivity.class); //Replace with actual class activity name
-        sendPatient.putExtra(USERNAME_INTENT, patient_username); //Replace with patient_username;
+        Intent sendPatient = new Intent(this, FilterDoctorActivity.class);
+        sendPatient.putExtra(USERNAME_INTENT, patient_username);
         startActivity(sendPatient);
     }
 
@@ -87,5 +87,15 @@ public class PatientMainActivity extends AppCompatActivity {
 
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+    }
+
+    public void patientRefreshOnClick(View view) {
+
+        Intent intent = getIntent();
+        String patient_username = intent.getStringExtra(PatientLoginActivity.USERNAME_INTENT);
+
+        Intent sendPatient = new Intent(this, PatientMainActivity.class);
+        sendPatient.putExtra(USERNAME_INTENT, patient_username);
+        startActivity(sendPatient);
     }
 }
