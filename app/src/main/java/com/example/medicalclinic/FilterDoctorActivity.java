@@ -31,7 +31,6 @@ public class FilterDoctorActivity extends AppCompatActivity {
     Spinner sp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_filter_doctor);
 
@@ -78,11 +77,9 @@ public class FilterDoctorActivity extends AppCompatActivity {
     }
 
     public void collectFilters(View view) {
-
         // Gender Filter
         RadioGroup rg = (RadioGroup) findViewById(R.id.radioGroup);
         RadioButton rb = (RadioButton) findViewById((rg.getCheckedRadioButtonId()));
-
 
         // Specialty Filter
         String spec_filter = String.valueOf(sp.getSelectedItem());
@@ -105,7 +102,6 @@ public class FilterDoctorActivity extends AppCompatActivity {
 
             startActivity(intent);
         }
-
     }
 
     @Override

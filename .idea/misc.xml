@@ -5,6 +5,14 @@
       <map>
         <entry key="..\:/Users/anind/Documents/UofT/Summer_2021/CSCB07/Project/MedicalClinic/app/src/main/res/layout/activity_patient_login.xml" value="0.36" />
         <entry key="..\:/Users/anind/Documents/UofT/Summer_2021/CSCB07/Project/MedicalClinic/app/src/main/res/layout/activity_patient_main.xml" value="0.2546875" />
+        <entry key="..\:/Users/saadm/Documents/Computer Science/MedicalClinic/MedicalClinic/app/src/main/res/layout/activity_filter_doctor.xml" value="0.18297101449275363" />
+        <entry key="..\:/Users/saadm/Documents/Computer Science/MedicalClinic/MedicalClinic/app/src/main/res/layout/activity_main.xml" value="0.18297101449275363" />
+        <entry key="..\:/Users/saadm/Documents/Computer Science/MedicalClinic/MedicalClinic/app/src/main/res/layout/activity_patient_book_doctor.xml" value="0.18297101449275363" />
+        <entry key="..\:/Users/saadm/Documents/Computer Science/MedicalClinic/MedicalClinic/app/src/main/res/layout/activity_patient_doctor_availabilities.xml" value="0.18297101449275363" />
+        <entry key="..\:/Users/saadm/Documents/Computer Science/MedicalClinic/MedicalClinic/app/src/main/res/layout/activity_patient_entry.xml" value="0.146875" />
+        <entry key="..\:/Users/saadm/Documents/Computer Science/MedicalClinic/MedicalClinic/app/src/main/res/layout/activity_patient_login.xml" value="0.18297101449275363" />
+        <entry key="..\:/Users/saadm/Documents/Computer Science/MedicalClinic/MedicalClinic/app/src/main/res/layout/activity_patient_main.xml" value="0.25" />
+        <entry key="..\:/Users/saadm/Documents/Computer Science/MedicalClinic/MedicalClinic/app/src/main/res/layout/activity_patient_sign_up.xml" value="0.375" />
       </map>
     </option>
   </component>

@@ -50,9 +50,6 @@ public class PatientDoctorAvailabilitiesActivity extends AppCompatActivity {
         appointments = new ArrayList<>();
         appointments.add("Select An Appointment");
 
-        TextView t = (TextView)findViewById(R.id.textView3);
-        t.setText(doctor);
-
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("doctors/" + doctor);
         ValueEventListener listener = new ValueEventListener() {
             @Override

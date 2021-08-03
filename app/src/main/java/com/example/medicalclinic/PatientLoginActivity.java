@@ -20,9 +20,10 @@ public class PatientLoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient_login);
+        setTitle("Medical Clinic");
     }
-    public void patientLoginButtonOnClick(android.view.View view)
-    {
+
+    public void patientLoginButtonOnClick(android.view.View view) {
         //Login for FireBase Authentication
         TextView patientUserNameTextBox=(TextView)findViewById(R.id.patientUserNameTextBox);
         TextView patientPasswordTextBox=(TextView)findViewById(R.id.patientPasswordTextBox);
@@ -66,10 +67,8 @@ public class PatientLoginActivity extends AppCompatActivity {
         });
     }
 
-    public void patientSignUpButtonOnClick(android.view.View view)
-    {
+    public void patientSignUpButtonOnClick(android.view.View view) {
         Intent intent=new Intent(this,PatientSignUpActivity.class);
         startActivity(intent);
     }
-
 }

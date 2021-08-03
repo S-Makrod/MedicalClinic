@@ -15,10 +15,8 @@ import java.util.Date;
 
 public class Patient extends PatientUser{
     String name, password, gender, username;
-    String date_of_birth;		//Can be either date like Java.Date() or string
-    //AppointmentListPro upcoming_appointments; //List of dates like Java.Date()
-    //AppointmentList previous_appointments; //List of dates like Java.Date()
-    List<AppointmentInfo> doctors;				//List of doctor id and name no need to have other info
+    String date_of_birth;		                //String of user's DOB
+    List<AppointmentInfo> doctors;				//List of doctor id
 
     public Patient() {
 
@@ -31,32 +29,8 @@ public class Patient extends PatientUser{
         this.username = username;
         this.date_of_birth = date_of_birth;
 
-        //upcoming_appointments = new UpcomingAppointments();
-        //previous_appointments = new PreviousAppointments();
         doctors = new ArrayList<>();
     }
-
-    /*@Override
-    public void book(String doc_username, Date d) throws ParseException {
-
-        AppointmentInfo newAppointmentInfo = new AppointmentMeeting(doc_username);
-        AppointmentSlot newAppointment = new AppointmentSlot(doc_username, d);
-
-        boolean shouldAdd = true;
-        for (AppointmentInfo info: doctors) {
-
-            if (info.getUsername() == doc_username) {
-                shouldAdd = false;
-            }
-        }
-
-        if (shouldAdd) {
-            doctors.add(newAppointmentInfo);
-        }
-
-        upcoming_appointments.add(newAppointment);
-        this.update_appointments();
-    }*/
 
     @Override
     public void book(String doc_username, Date d, String patient_username) throws ParseException {
@@ -111,24 +85,6 @@ public class Patient extends PatientUser{
 
     }
 
-    /*@Override
-    public void update_appointments() throws ParseException{
-
-        Date current = new Date(System.currentTimeMillis());
-        List<Appointment> upcoming_appointments_copy = upcoming_appointments.getUpcoming();
-
-        for (Appointment appointment: upcoming_appointments_copy) {
-
-            if (current.after(Appointment.dateParser.parse(appointment.getDate()))) {
-
-                previous_appointments.add(appointment);
-                upcoming_appointments.delete(appointment);
-            }
-        }
-
-        Database.ref.child("patients").child(this.getUsername()).setValue(this);
-    }*/
-
     @Override
     public String getName() {
         return name;
@@ -178,26 +134,6 @@ public class Patient extends PatientUser{
     public void setDate_of_birth(String date_of_birth) {
         this.date_of_birth = date_of_birth;
     }
-
-    /*@Override
-    public AppointmentListPro getUpcoming_appointments() {
-        return upcoming_appointments;
-    }*/
-
-    /*@Override
-    public void setUpcoming_appointments(AppointmentListPro upcoming_appointments) {
-        this.upcoming_appointments = upcoming_appointments;
-    }*/
-
-    /*@Override
-    public AppointmentList getPrevious_appointments() {
-        return previous_appointments;
-    }*/
-
-    /*@Override
-    public void setPrevious_appointments(AppointmentList previous_appointments) {
-        this.previous_appointments = previous_appointments;
-    }*/
 
     @Override
     public List<AppointmentInfo> getDoctors() {

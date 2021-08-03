@@ -1,6 +1,5 @@
 package com.example.medicalclinic;
 
-import java.text.ParseException;
 import java.util.Date;
 
 public class AppointmentSlot implements Appointment{

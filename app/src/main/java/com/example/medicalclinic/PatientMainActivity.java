@@ -28,6 +28,7 @@ public class PatientMainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient_main);
+        setTitle("Medical Clinic");
 
         Intent intent = getIntent();
         String patient_username = intent.getStringExtra(PatientLoginActivity.USERNAME_INTENT);
@@ -55,7 +56,7 @@ public class PatientMainActivity extends AppCompatActivity {
                     AppointmentSlot post = child.getValue(AppointmentSlot.class);
                     String doctorUsername = post.doctor.getUsername();
                     String doc = dataSnapshot.child("doctors").child(doctorUsername).child("name").getValue().toString();
-                    appointment_list += "Date: " + post.getDate() + " Doctor: Dr. " + doc + "\n";
+                    appointment_list += "Doctor: Dr. " + doc + "\nDate: " + post.getDate() + "\n\n";
                 }
 
                 appointment_display.setText(appointment_list);

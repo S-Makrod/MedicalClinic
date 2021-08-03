@@ -14,12 +14,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        setTitle("Medical Clinic");
     }
 
     // When user presses button
-    public void patientButtonOnClick(android.view.View view)
-    {
+    public void patientButtonOnClick(android.view.View view) {
         Intent intent=new Intent(this,PatientLoginActivity.class);
         startActivity(intent);
     }

@@ -31,10 +31,10 @@ public class PatientSignUpActivity extends AppCompatActivity implements View.OnC
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient_sign_up);
+        setTitle("Medical Clinic");
 
         Button signUp = (Button) findViewById(R.id.signUp);
         signUp.setOnClickListener(this);
-
     }
 
     @Override
