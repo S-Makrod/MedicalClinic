@@ -14,4 +14,8 @@
     <string name="sign_up_description">To create an account, please fill in all the information below.</string>
     <string name="male">Male</string>
     <string name="female">Female</string>
+    <string name="welcome">WELCOME</string>
+    <string name="upcoming_appointments">Upcoming Appointments</string>
+    <string name="log_out">LOG OUT</string>
+    <string name="book">BOOK</string>
 </resources>
