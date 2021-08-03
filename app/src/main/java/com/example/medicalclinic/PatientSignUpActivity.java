@@ -24,8 +24,6 @@ import java.util.regex.Pattern;
 public class PatientSignUpActivity extends AppCompatActivity implements View.OnClickListener {
 
     private EditText editName, editDateOfBirth, editUsername, editPassword;
-    private RadioGroup genderGroup;
-    private RadioButton genderChosen;
     private String name, username, dateOfBirth, password,gender;
     private Database<PatientUser> database;
 
@@ -50,9 +48,9 @@ public class PatientSignUpActivity extends AppCompatActivity implements View.OnC
         editDateOfBirth = (EditText) findViewById(R.id.dateOfBirth);
         editUsername = (EditText) findViewById(R.id.username);
         editPassword = (EditText) findViewById(R.id.password);
-        genderGroup = (RadioGroup) findViewById(R.id.radioGroup);
+        RadioGroup genderGroup = (RadioGroup) findViewById(R.id.radioGroup);
         int genderGroupId = genderGroup.getCheckedRadioButtonId();
-        genderChosen = (RadioButton) findViewById(genderGroupId);
+        RadioButton genderChosen = (RadioButton) findViewById(genderGroupId);
         database = new PatientDB();
 
         name = editName.getText().toString().trim();
