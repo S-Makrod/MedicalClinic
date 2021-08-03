@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
+import android.widget.Filter;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -72,7 +73,7 @@ public class PatientMainActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String patient_username = intent.getStringExtra(PatientLoginActivity.USERNAME_INTENT);
 
-        Intent sendPatient = new Intent(this, MainActivity.class); //Replace with actual class activity name
+        Intent sendPatient = new Intent(this, FilterDoctorActivity.class); //Replace with actual class activity name
         sendPatient.putExtra(USERNAME_INTENT, patient_username); //Replace with patient_username;
         startActivity(sendPatient);
     }

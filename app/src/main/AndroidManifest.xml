@@ -9,15 +9,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MedicalClinic">
-        <activity android:name=".PatientDoctorAvailabilitiesActivity"></activity>
+        <activity
+            android:name=".FilterDoctorActivity"
+            android:exported="true" />
+        <activity android:name=".PatientDoctorAvailabilitiesActivity" />
         <activity android:name=".PatientBookDoctorActivity" />
         <activity android:name=".PatientMainActivity" />
-        <activity android:name=".PatientLoginActivity"
+        <activity
+            android:name=".PatientLoginActivity"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".PatientSignUpActivity" 
-			android:parentActivityName=".PatientLoginActivity" />
-
-        <activity android:name=".MainActivity" android:exported="true">
+        <activity
+            android:name=".PatientSignUpActivity"
+            android:parentActivityName=".PatientLoginActivity" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
