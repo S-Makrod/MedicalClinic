@@ -12,10 +12,11 @@
         <activity android:name=".PatientDoctorAvailabilitiesActivity"></activity>
         <activity android:name=".PatientBookDoctorActivity" />
         <activity android:name=".PatientMainActivity" />
-        <activity android:name=".PatientLoginActivity" />
+        <activity android:name=".PatientLoginActivity"
+            android:parentActivityName=".MainActivity" />
         <activity android:name=".PatientSignUpActivity" 
 			android:parentActivityName=".PatientLoginActivity" />
-        <activity android:name=".PatientEntryActivity" />
+
         <activity android:name=".MainActivity" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

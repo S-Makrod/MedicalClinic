@@ -15,7 +15,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class PatientLoginActivity extends AppCompatActivity {
-
+    public static final String USERNAME_INTENT = "username";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +48,7 @@ public class PatientLoginActivity extends AppCompatActivity {
                     if(patient_pass.equals(password))
                     {
                         Intent intent=new Intent(PatientLoginActivity.this,PatientMainActivity.class);
+                        intent.putExtra(USERNAME_INTENT, userName);
                         startActivity(intent);
                     } else {
                         Toast.makeText(PatientLoginActivity.this,"Invalid Username or Password!",Toast.LENGTH_LONG).show();
