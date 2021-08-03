@@ -1,5 +1,6 @@
 package com.example.medicalclinic;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -32,13 +33,14 @@ public class PatientMainActivity extends AppCompatActivity {
         String patient_username = intent.getStringExtra(PatientLoginActivity.USERNAME_INTENT);
 
         TextView patient_display = findViewById(R.id.textView6);
-        patient_display.setText(patient_username); //Change this so it's patient_username as the argument
 
-        DatabaseReference mPostReference = FirebaseDatabase.getInstance().getReference("patients/" + patient_username + "/upcoming_appointments"); //Replace with patient_username
         ValueEventListener postListener = new ValueEventListener() {
 
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+
+                String patient_name = dataSnapshot.child("patients").child(patient_username).child("name").getValue().toString();
+                patient_display.setText(patient_name); // Display patient name
 
                 Patient patient_update = new Patient();
                 try {
@@ -49,10 +51,11 @@ public class PatientMainActivity extends AppCompatActivity {
 
                 TextView appointment_display = findViewById(R.id.textView8);
                 String appointment_list = "";
-                for (DataSnapshot child:dataSnapshot.getChildren()) {
+                for (DataSnapshot child:dataSnapshot.child("patients").child(patient_username).child("upcoming_appointments").getChildren()) {
                     AppointmentSlot post = child.getValue(AppointmentSlot.class);
-
-                    appointment_list += "Date: " + post.getDate() + " Doctor: " + post.doctor.getUsername() + "\n";
+                    String doctorUsername = post.doctor.getUsername();
+                    String doc = dataSnapshot.child("doctors").child(doctorUsername).child("name").getValue().toString();
+                    appointment_list += "Date: " + post.getDate() + " Doctor: Dr. " + doc + "\n";
                 }
 
                 appointment_display.setText(appointment_list);
@@ -64,7 +67,8 @@ public class PatientMainActivity extends AppCompatActivity {
                 Log.w("warning", "loadPost:onCancelled", databaseError.toException());
             }
         };
-        mPostReference.addValueEventListener(postListener);
+        Database.ref.addValueEventListener(postListener);
+
 
     }
 
