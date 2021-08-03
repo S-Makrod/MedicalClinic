@@ -88,6 +88,9 @@ public class PatientDoctorAvailabilitiesActivity extends AppCompatActivity {
             Patient p = new Patient();
             p.book(doctor, d, username);
 
+            // Delete time slot from doctor's availabilities
+            Database.ref.child("doctors").child(doctor).child("availabilities").child(appointment).removeValue();
+
             Intent intent = new Intent(this, PatientMainActivity.class);
             intent.putExtra(USERNAME_INTENT, username);
             startActivity(intent);

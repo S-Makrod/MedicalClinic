@@ -38,10 +38,8 @@ public class PatientLoginActivity extends AppCompatActivity {
 
                 // Check if entered username is a registered user
                 PatientDB patientDB = new PatientDB();
-                if (patientDB.search(userName) == false) {
-                    Toast.makeText(PatientLoginActivity.this,"Invalid Username!",Toast.LENGTH_LONG).show();
-                }
-                else {
+
+                if (dataSnapshot.child(userName).exists()) {
                     Patient patient = dataSnapshot.getValue(Patient.class);
                     String patient_pass = dataSnapshot.child(userName).child("password").getValue(String.class);
                     Log.i("info", patient_pass);
@@ -51,9 +49,14 @@ public class PatientLoginActivity extends AppCompatActivity {
                         intent.putExtra(USERNAME_INTENT, userName);
                         startActivity(intent);
                     } else {
-                        Toast.makeText(PatientLoginActivity.this,"Invalid Username or Password!",Toast.LENGTH_LONG).show();
+                        Toast.makeText(PatientLoginActivity.this,"Invalid Password",Toast.LENGTH_LONG).show();
                     }
+
                 }
+                else {
+                    Toast.makeText(PatientLoginActivity.this,"The entered username is not in our records",Toast.LENGTH_LONG).show();
+                }
+
             }
 
             @Override

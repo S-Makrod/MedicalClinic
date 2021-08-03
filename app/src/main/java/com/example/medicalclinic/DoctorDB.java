@@ -10,6 +10,7 @@ public class DoctorDB implements Database<DoctorUser>, DatabaseDelete{
     @Override
     public void add(DoctorUser u) {
 
+
     }
 
     @Override

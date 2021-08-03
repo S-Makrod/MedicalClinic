@@ -3,14 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/saadm/Documents/Computer Science/MedicalClinic/MedicalClinic/app/src/main/res/drawable/spinner_bg.xml" value="0.17395833333333333" />
-        <entry key="..\:/Users/saadm/Documents/Computer Science/MedicalClinic/MedicalClinic/app/src/main/res/layout/activity_filter_doctor.xml" value="0.18659420289855072" />
-        <entry key="..\:/Users/saadm/Documents/Computer Science/MedicalClinic/MedicalClinic/app/src/main/res/layout/activity_main.xml" value="0.335" />
-        <entry key="..\:/Users/saadm/Documents/Computer Science/MedicalClinic/MedicalClinic/app/src/main/res/layout/activity_patient_book_doctor.xml" value="0.165" />
-        <entry key="..\:/Users/saadm/Documents/Computer Science/MedicalClinic/MedicalClinic/app/src/main/res/layout/activity_patient_doctor_availabilities.xml" value="0.165" />
-        <entry key="..\:/Users/saadm/Documents/Computer Science/MedicalClinic/MedicalClinic/app/src/main/res/layout/activity_patient_entry.xml" value="0.15353260869565216" />
-        <entry key="..\:/Users/saadm/Documents/Computer Science/MedicalClinic/MedicalClinic/app/src/main/res/layout/activity_patient_login.xml" value="0.17391304347826086" />
-        <entry key="..\:/Users/saadm/Documents/Computer Science/MedicalClinic/MedicalClinic/app/src/main/res/layout/activity_patient_main.xml" value="0.15353260869565216" />
+        <entry key="..\:/Users/anind/Documents/UofT/Summer_2021/CSCB07/Project/MedicalClinic/app/src/main/res/layout/activity_patient_login.xml" value="0.36" />
       </map>
     </option>
   </component>
@@ -19,5 +12,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.165" />
+      </ProjectState>
+    </option>
   </component>
 </project>
