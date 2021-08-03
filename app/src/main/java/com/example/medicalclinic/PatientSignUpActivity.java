@@ -1,5 +1,6 @@
 package com.example.medicalclinic;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -9,6 +10,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -16,8 +24,9 @@ import java.util.regex.Pattern;
 public class PatientSignUpActivity extends AppCompatActivity implements View.OnClickListener {
 
     private EditText editName, editDateOfBirth, editUsername, editPassword;
+    private RadioGroup genderGroup;
     private RadioButton genderChosen;
-    private String name, username, dateOfBirth, password;
+    private String name, username, dateOfBirth, password,gender;
     private Database<PatientUser> database;
 
     @Override
@@ -28,38 +37,61 @@ public class PatientSignUpActivity extends AppCompatActivity implements View.OnC
         Button signUp = (Button) findViewById(R.id.signUp);
         signUp.setOnClickListener(this);
 
-        editName = (EditText) findViewById(R.id.name);
-        editDateOfBirth = (EditText) findViewById(R.id.dateOfBirth);
-        editUsername = (EditText) findViewById(R.id.username);
-        editPassword = (EditText) findViewById(R.id.password);
-
-        RadioGroup genderGroup = (RadioGroup) findViewById(R.id.radioGroup);
-        genderChosen = (RadioButton) findViewById(genderGroup.getCheckedRadioButtonId());
-
-        database = new PatientDB();
     }
 
     @Override
     public void onClick(View v) {
         signUp();
-        Intent intent = new Intent(this, PatientEntryActivity.class);
-        startActivity(intent);
     }
 
     public void signUp() {
+
+        editName = (EditText) findViewById(R.id.name);
+        editDateOfBirth = (EditText) findViewById(R.id.dateOfBirth);
+        editUsername = (EditText) findViewById(R.id.username);
+        editPassword = (EditText) findViewById(R.id.password);
+        genderGroup = (RadioGroup) findViewById(R.id.radioGroup);
+        int genderGroupId = genderGroup.getCheckedRadioButtonId();
+        genderChosen = (RadioButton) findViewById(genderGroupId);
+        database = new PatientDB();
+
         name = editName.getText().toString().trim();
-        String gender = genderChosen.getText().toString().trim();
+        gender = genderChosen.getText().toString().trim();
         dateOfBirth = editDateOfBirth.getText().toString();
         username = editUsername.getText().toString().trim();
         password = editPassword.getText().toString().trim();
 
         if (isValidated()) {
-            PatientUser patient = new Patient(name, password, gender, username, dateOfBirth);
-            database.add(patient);
+
+            Intent intent = new Intent(this, PatientLoginActivity.class);
+
+            FirebaseDatabase database2 = FirebaseDatabase.getInstance();
+            DatabaseReference ref=database2.getReference("patients");
+
+            ref.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.child(username).exists()) {
+                        editUsername.setError("Username has been taken. Please enter another username!");
+
+                    } else {
+                        PatientUser patient = new Patient(name, password, gender, username, dateOfBirth);
+                        database.add(patient);
+                        Toast.makeText(PatientSignUpActivity.this,"Account has been created.",Toast.LENGTH_LONG).show();
+                        startActivity(intent);
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
         }
     }
 
     private boolean isValidated() {
+
         if (name.isEmpty()) {
             editName.setError("Please enter your name!");
             return false;
@@ -94,11 +126,6 @@ public class PatientSignUpActivity extends AppCompatActivity implements View.OnC
         if (!checkUsername.matches()) {
             editUsername.setError("Please enter a valid username! Minimum of 6 characters." +
                     "Only letters, digits, and underscores allowed.");
-            return false;
-        }
-
-        if (database.search(username)) {
-            editUsername.setError("Username has been taken. Please enter another username!");
             return false;
         }
 
