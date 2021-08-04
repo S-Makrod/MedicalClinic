@@ -56,18 +56,22 @@ public class Patient extends PatientUser{
     public void update_appointments(String patient_username) throws ParseException{
 
         Date current = new Date(System.currentTimeMillis());
-        DatabaseReference mPostReference = FirebaseDatabase.getInstance().getReference("patients/" + patient_username + "/upcoming_appointments");
+        //DatabaseReference mPostReference = FirebaseDatabase.getInstance().getReference("patients/" + patient_username + "/upcoming_appointments");
         ValueEventListener postListener = new ValueEventListener() {
 
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot child:dataSnapshot.getChildren()) {
+                for (DataSnapshot child:dataSnapshot.child("patients").child(patient_username).child("upcoming_appointments").getChildren()) {
                     AppointmentSlot post = child.getValue(AppointmentSlot.class);
 
                     try {
                         if (current.after(Appointment.dateParser.parse(post.getDate()))) {
                             Database.ref.child("patients").child(patient_username).child("previous_appointments").child(post.getDate()).setValue(post);
-                            Database.ref.child("patients").child(patient_username).child("doctors").child(post.doctor.getUsername()).setValue(post.doctor.getUsername());
+
+                            String doctorUsername = post.doctor.getUsername();
+                            String doc = dataSnapshot.child("doctors").child(doctorUsername).child("name").getValue ().toString();
+
+                            Database.ref.child("patients").child(patient_username).child("doctors").child(post.doctor.getUsername()).setValue(doc);
                             child.getRef().removeValue();
                         }
                     } catch (ParseException e) {
@@ -81,7 +85,7 @@ public class Patient extends PatientUser{
                 Log.w("warning", "loadPost:onCancelled", databaseError.toException());
             }
         };
-        mPostReference.addValueEventListener(postListener);
+        Database.ref.addValueEventListener(postListener);
 
     }
 
