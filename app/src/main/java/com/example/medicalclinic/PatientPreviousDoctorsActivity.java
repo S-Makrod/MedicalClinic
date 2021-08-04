@@ -48,6 +48,10 @@ public class PatientPreviousDoctorsActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
+                TextView patient_display = findViewById(R.id.textView9);
+                String patientName = dataSnapshot.child("patients").child(patient_username).child("name").getValue().toString();
+                patient_display.setText(patientName);
+
                 TextView doctors_display = findViewById(R.id.textView8);
                 String doctors_list = "";
                 for (DataSnapshot child:dataSnapshot.child("patients").child(patient_username).child("doctors").getChildren()) {
