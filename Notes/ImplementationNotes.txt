@@ -1,3 +1,10 @@
+NOTE:
+These are abstract classes and interfaces that we think will be useful to design. 
+These are all  subject to change as we move along with our development we may decide
+that we need some interfaces and not others. However this is design does cover the 
+bases of almost everthing we will need.
+
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -273,3 +280,8 @@ public class Test {
 		System.out.println(y);
 		System.out.println(dateFormatter.format(y));
 }
+
+
+UPDATE:
+We developed a more finalized design that we used for our actual development, refer to GitHub code
+to see what we implemented.

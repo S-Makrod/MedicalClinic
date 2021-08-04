@@ -1,0 +1,7 @@
+1. As a patient I want to log in so that I can see the patient screen
+
+
+2. As a patient I want to see a list of doctors and be able to filter through them so that I can find a doctor that meets my needs
+
+
+3. As a patient I want to be able to click on a doctor and see their availabilities so that I can book appointments and see my upcoming appointments updated accordingly.
