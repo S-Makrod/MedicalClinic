@@ -51,17 +51,8 @@ public class PatientPreviousDoctorsActivity extends AppCompatActivity {
                 TextView doctors_display = findViewById(R.id.textView8);
                 String doctors_list = "";
                 for (DataSnapshot child:dataSnapshot.child("patients").child(patient_username).child("doctors").getChildren()) {
-                    String doctorUsername = child.getValue(String.class);
-
-                    //Need to add this in after DoctorDB has been implemented, and remove the two lines below
-                    /*DoctorDB doctorDatabase = new DoctorDB();
-                    if (doctorDatabase.search(doctorUsername)) {
-                        String doc = dataSnapshot.child("doctors").child(doctorUsername).child("name").getValue ().toString();
-                        doctors_list += "Doctor: Dr. " + doc + "\n\n";
-                    }*/
-
-                    String doc = dataSnapshot.child("doctors").child(doctorUsername).child("name").getValue ().toString();
-                    doctors_list += "Doctor: Dr. " + doc + "\n\n";
+                    String doctorName = child.getValue(String.class);
+                    doctors_list += "Doctor: Dr. " + doctorName + "\n\n";
                 }
 
                 doctors_display.setText(doctors_list);
