@@ -19,4 +19,6 @@
     <string name="log_out">LOG OUT</string>
     <string name="book">BOOK</string>
     <string name="refresh">REFRESH</string>
+    <string name="doctors">DOCTORS</string>
+    <string name="previous_doctors">Previous Doctors Visited</string>
 </resources>

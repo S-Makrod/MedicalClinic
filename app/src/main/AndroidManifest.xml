@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MedicalClinic">
         <activity
+            android:name=".PatientPreviousDoctorsActivity"
+            android:exported="true" />
+        <activity
             android:name=".FilterDoctorActivity"
             android:exported="true" />
         <activity android:name=".PatientDoctorAvailabilitiesActivity" />

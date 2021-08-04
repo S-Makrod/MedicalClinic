@@ -1,6 +1,6 @@
 package com.example.medicalclinic;
 
-import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -8,17 +8,13 @@ import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
-import android.widget.Filter;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.text.ParseException;
-import java.util.Date;
 
 public class PatientMainActivity extends AppCompatActivity {
 
@@ -95,6 +91,16 @@ public class PatientMainActivity extends AppCompatActivity {
         String patient_username = intent.getStringExtra(PatientLoginActivity.USERNAME_INTENT);
 
         Intent sendPatient = new Intent(this, PatientMainActivity.class);
+        sendPatient.putExtra(USERNAME_INTENT, patient_username);
+        startActivity(sendPatient);
+    }
+
+    public void patientPreviousDoctorsOnClick(View view) {
+
+        Intent intent = getIntent();
+        String patient_username = intent.getStringExtra(PatientLoginActivity.USERNAME_INTENT);
+
+        Intent sendPatient = new Intent(this, PatientPreviousDoctorsActivity.class);
         sendPatient.putExtra(USERNAME_INTENT, patient_username);
         startActivity(sendPatient);
     }
