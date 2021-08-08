@@ -20,8 +20,6 @@ public class PatientLoginActivity extends AppCompatActivity implements Contract.
     public static final String USERNAME_INTENT = "username";
     public TextView patientUserName,patientPassword;
 
-    private PatientLoginPresenter loginPresenter;
-
     private Contract.Model model;
     private Contract.Presenter presenter;
 

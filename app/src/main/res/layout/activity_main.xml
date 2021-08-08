@@ -35,16 +35,17 @@ tools:context=".MainActivity"
         android:layout_below="@id/logoLabel"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
+        android:onClick="doctorButtonOnClick"
         android:text="Doctor" />
 
-<Button
-    android:id="@+id/patientButton"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_below="@id/doctorButton"
-    android:layout_centerHorizontal="true"
-    android:onClick="patientButtonOnClick"
-    android:text="Patient" />
+    <Button
+        android:id="@+id/patientButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/doctorButton"
+        android:layout_centerHorizontal="true"
+        android:onClick="patientButtonOnClick"
+        android:text="Patient" />
 
 
 </RelativeLayout>

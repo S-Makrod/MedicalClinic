@@ -5,8 +5,13 @@
       <map>
         <entry key="..\:/Users/Mario/CSCB07 Project/MedicalClinic/app/src/main/res/layout/activity_patient_main.xml" value="0.3875" />
         <entry key="..\:/Users/Mario/CSCB07 Project/MedicalClinic/app/src/main/res/layout/activity_patient_previous_doctors.xml" value="0.3875" />
+        <entry key="..\:/Users/anind/Documents/UofT/Summer_2021/CSCB07/Project/MedicalClinic/app/src/main/res/layout/activity_doctor_availabilities.xml" value="0.2546875" />
+        <entry key="..\:/Users/anind/Documents/UofT/Summer_2021/CSCB07/Project/MedicalClinic/app/src/main/res/layout/activity_doctor_login.xml" value="0.3670064874884152" />
+        <entry key="..\:/Users/anind/Documents/UofT/Summer_2021/CSCB07/Project/MedicalClinic/app/src/main/res/layout/activity_doctor_main.xml" value="0.2546875" />
+        <entry key="..\:/Users/anind/Documents/UofT/Summer_2021/CSCB07/Project/MedicalClinic/app/src/main/res/layout/activity_main.xml" value="0.13020833333333334" />
         <entry key="..\:/Users/anind/Documents/UofT/Summer_2021/CSCB07/Project/MedicalClinic/app/src/main/res/layout/activity_patient_login.xml" value="0.36" />
         <entry key="..\:/Users/anind/Documents/UofT/Summer_2021/CSCB07/Project/MedicalClinic/app/src/main/res/layout/activity_patient_main.xml" value="0.2546875" />
+        <entry key="..\:/Users/anind/Documents/UofT/Summer_2021/CSCB07/Project/MedicalClinic/app/src/main/res/layout/activity_view_patient_info.xml" value="0.2546875" />
         <entry key="..\:/Users/saadm/Documents/Computer Science/MedicalClinic/MedicalClinic/app/src/main/res/layout/activity_filter_doctor.xml" value="0.18297101449275363" />
         <entry key="..\:/Users/saadm/Documents/Computer Science/MedicalClinic/MedicalClinic/app/src/main/res/layout/activity_main.xml" value="0.18297101449275363" />
         <entry key="..\:/Users/saadm/Documents/Computer Science/MedicalClinic/MedicalClinic/app/src/main/res/layout/activity_patient_book_doctor.xml" value="0.18297101449275363" />

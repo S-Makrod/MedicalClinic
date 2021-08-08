@@ -20,8 +20,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:layout_marginTop="20dp"
-                android:contentDescription="@string/app_name"
-                android:src="@drawable/doctorlogo" />
+                android:contentDescription="@string/app_name" />
+<!--                android:src="@drawable/doctorlogo" />-->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 app:contentPaddingTop="10dp"

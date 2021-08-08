@@ -22,4 +22,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent=new Intent(this,PatientLoginActivity.class);
         startActivity(intent);
     }
+
+    public void doctorButtonOnClick(android.view.View view) {
+        Intent intent=new Intent(this,DoctorLoginActivity.class);
+        startActivity(intent);
+    }
 }

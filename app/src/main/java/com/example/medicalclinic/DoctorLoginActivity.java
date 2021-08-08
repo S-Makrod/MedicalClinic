@@ -54,9 +54,9 @@ public class DoctorLoginActivity extends AppCompatActivity implements Contract.V
     @Override
     public void loginSuccess(String message) {
         Toast.makeText(DoctorLoginActivity.this, message, Toast.LENGTH_LONG).show();
-        //Intent intent=new Intent(DoctorLoginActivity.this.class);
-        //intent.putExtra(USERNAME_INTENT, model.getUsername());
-        //startActivity(intent);
+        Intent intent=new Intent(DoctorLoginActivity.this, DoctorMainActivity.class);
+        intent.putExtra(USERNAME_INTENT, model.getUsername());
+        startActivity(intent);
     }
 
     @Override
