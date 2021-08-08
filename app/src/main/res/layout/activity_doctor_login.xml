@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    tools:context=".PatientLoginActivity">
+    tools:context=".DoctorLoginActivity">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,19 +16,19 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/patientTopImage"
+                android:id="@+id/doctorTopImage"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:layout_marginTop="20dp"
                 android:contentDescription="@string/app_name"
-                android:src="@drawable/ic_undraw_fingerprint_swrc" />
+                android:src="@drawable/doctorlogo" />
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 app:contentPaddingTop="10dp"
                 app:contentPaddingBottom="10dp"
                 app:contentPadding="10dp"
                 android:id="@+id/card"
-                android:layout_below="@+id/patientTopImage"
+                android:layout_below="@+id/doctorTopImage"
                 app:cardUseCompatPadding="true"
                 android:layout_height="wrap_content">
 
@@ -38,12 +38,12 @@
                     android:layout_height="wrap_content">
 
                     <TextView
-                        android:id="@+id/patientHeaderText"
+                        android:id="@+id/doctorHeaderText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
                         android:fontFamily="@font/aclonica"
-                        android:text="Patient Login"
+                        android:text="Doctor Login"
                         android:textColor="@color/colorPrimaryDark"
                         android:textSize="25sp" />
                     <com.google.android.material.textfield.TextInputLayout
@@ -51,18 +51,17 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/usernamelayout"
                         android:layout_marginTop="8dp"
-                        android:layout_below="@+id/patientHeaderText"
+                        android:layout_below="@+id/doctorHeaderText"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox" >
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/patientUserNameTextBox"
+                            android:id="@+id/doctorUserNameTextBox"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:fontFamily="@font/overpass_semibold"
                             android:hint="Enter Username"
                             android:maxHeight="48dp"
-                            android:minHeight="48dp"
-                            ></com.google.android.material.textfield.TextInputEditText>
+                            android:minHeight="48dp"></com.google.android.material.textfield.TextInputEditText>
                     </com.google.android.material.textfield.TextInputLayout>
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
@@ -74,7 +73,7 @@
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox" >
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/patientPasswordTextBox"
+                            android:id="@+id/doctorPasswordTextBox"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:fontFamily="@font/overpass_semibold"
@@ -82,14 +81,13 @@
                             android:hint="Enter Password"
                             android:inputType="textPassword"
                             android:maxHeight="48dp"
-                            android:minHeight="48dp"
-                            ></com.google.android.material.textfield.TextInputEditText>
+                            android:minHeight="48dp"></com.google.android.material.textfield.TextInputEditText>
                     </com.google.android.material.textfield.TextInputLayout>
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
             <Button
-                android:id="@+id/patientLoginButton"
+                android:id="@+id/doctorLoginButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/card"
@@ -105,7 +103,7 @@
                 android:textColor="@color/white" />
 
             <Button
-                android:id="@+id/patientSignUpButton"
+                android:id="@+id/doctorSignUpButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/card"
@@ -115,7 +113,6 @@
                 android:background="@drawable/button_bg"
                 android:fontFamily="@font/overpass_semibold"
                 android:foregroundGravity="center"
-                android:onClick="patientSignUpButtonOnClick"
                 android:paddingLeft="35dp"
                 android:paddingRight="35dp"
                 android:text="Sign Up"

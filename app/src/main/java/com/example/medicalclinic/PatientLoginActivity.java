@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,61 +15,61 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class PatientLoginActivity extends AppCompatActivity {
+//View Class of PatientLogin
+public class PatientLoginActivity extends AppCompatActivity implements Contract.View {
     public static final String USERNAME_INTENT = "username";
+    public TextView patientUserName,patientPassword;
+
+    private PatientLoginPresenter loginPresenter;
+
+    private Contract.Model model;
+    private Contract.Presenter presenter;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient_login);
         setTitle("Medical Clinic");
+
+        patientUserName=(TextView)findViewById(R.id.patientUserNameTextBox);
+        patientPassword=(TextView)findViewById(R.id.patientPasswordTextBox);
+
+
+
     }
 
-    public void patientLoginButtonOnClick(android.view.View view) {
-        //Login for FireBase Authentication
-        TextView patientUserNameTextBox=(TextView)findViewById(R.id.patientUserNameTextBox);
-        TextView patientPasswordTextBox=(TextView)findViewById(R.id.patientPasswordTextBox);
-        String userName= patientUserNameTextBox.getText().toString();
-        String password=patientPasswordTextBox.getText().toString();
 
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference ref=database.getReference("patients");
 
-        ref.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
 
-                // Check if entered username is a registered user
-                PatientDB patientDB = new PatientDB();
-
-                if (dataSnapshot.child(userName).exists()) {
-                    Patient patient = dataSnapshot.getValue(Patient.class);
-                    String patient_pass = dataSnapshot.child(userName).child("password").getValue(String.class);
-                    Log.i("info", patient_pass);
-                    if(patient_pass.equals(password))
-                    {
-                        Intent intent=new Intent(PatientLoginActivity.this,PatientMainActivity.class);
-                        intent.putExtra(USERNAME_INTENT, userName);
-                        startActivity(intent);
-                    } else {
-                        Toast.makeText(PatientLoginActivity.this,"Invalid Password",Toast.LENGTH_LONG).show();
-                    }
-
-                }
-                else {
-                    Toast.makeText(PatientLoginActivity.this,"The entered username is not in our records",Toast.LENGTH_LONG).show();
-                }
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-    }
 
     public void patientSignUpButtonOnClick(android.view.View view) {
         Intent intent=new Intent(this,PatientSignUpActivity.class);
         startActivity(intent);
     }
+
+
+
+    @Override
+    public void LoginButtonOnClick(android.view.View view) {
+        presenter = new LoginPresenter();
+        model = new LoginData(patientPassword.getText().toString(), patientUserName.getText().toString(), presenter);
+        model.executeLogin("patients", this);
+
+    }
+
+    @Override
+    public void loginSuccess(String message) {
+        Toast.makeText(PatientLoginActivity.this, message, Toast.LENGTH_LONG).show();
+        Intent intent=new Intent(PatientLoginActivity.this,PatientMainActivity.class);
+        intent.putExtra(USERNAME_INTENT, model.getUsername());
+        startActivity(intent);
+    }
+
+    @Override
+    public void loginFailure(String message) {
+        Toast.makeText(PatientLoginActivity.this, message, Toast.LENGTH_LONG).show();
+    }
+
+
 }
