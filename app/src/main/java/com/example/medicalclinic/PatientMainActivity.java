@@ -17,9 +17,6 @@ import com.google.firebase.database.ValueEventListener;
 import java.text.ParseException;
 
 public class PatientMainActivity extends AppCompatActivity {
-
-    public static final String USERNAME_INTENT = "username";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +24,7 @@ public class PatientMainActivity extends AppCompatActivity {
         setTitle("Medical Clinic");
 
         Intent intent = getIntent();
-        String patient_username = intent.getStringExtra(PatientLoginActivity.USERNAME_INTENT);
+        String patient_username = intent.getStringExtra("USERNAME_INTENT");
 
         TextView patient_display = findViewById(R.id.textView6);
 
@@ -65,43 +62,38 @@ public class PatientMainActivity extends AppCompatActivity {
             }
         };
         Database.ref.addValueEventListener(postListener);
-
-
     }
 
     public void patientBookOnClick(View view) {
 
         Intent intent = getIntent();
-        String patient_username = intent.getStringExtra(PatientLoginActivity.USERNAME_INTENT);
+        String patient_username = intent.getStringExtra("USERNAME_INTENT");
 
         Intent sendPatient = new Intent(this, FilterDoctorActivity.class);
-        sendPatient.putExtra(USERNAME_INTENT, patient_username);
+        sendPatient.putExtra("USERNAME_INTENT", patient_username);
         startActivity(sendPatient);
     }
 
     public void patientLogOutOnClick(View view) {
-
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 
     public void patientRefreshOnClick(View view) {
-
         Intent intent = getIntent();
-        String patient_username = intent.getStringExtra(PatientLoginActivity.USERNAME_INTENT);
+        String patient_username = intent.getStringExtra("USERNAME_INTENT");
 
         Intent sendPatient = new Intent(this, PatientMainActivity.class);
-        sendPatient.putExtra(USERNAME_INTENT, patient_username);
+        sendPatient.putExtra("USERNAME_INTENT", patient_username);
         startActivity(sendPatient);
     }
 
     public void patientPreviousDoctorsOnClick(View view) {
-
         Intent intent = getIntent();
-        String patient_username = intent.getStringExtra(PatientLoginActivity.USERNAME_INTENT);
+        String patient_username = intent.getStringExtra("USERNAME_INTENT");
 
         Intent sendPatient = new Intent(this, PatientPreviousDoctorsActivity.class);
-        sendPatient.putExtra(USERNAME_INTENT, patient_username);
+        sendPatient.putExtra("USERNAME_INTENT", patient_username);
         startActivity(sendPatient);
     }
 }

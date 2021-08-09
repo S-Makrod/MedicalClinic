@@ -18,9 +18,6 @@ import com.google.firebase.database.ValueEventListener;
 import java.text.ParseException;
 
 public class PatientPreviousDoctorsActivity extends AppCompatActivity {
-
-    public static final String USERNAME_INTENT = "username";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +31,7 @@ public class PatientPreviousDoctorsActivity extends AppCompatActivity {
         if(actionBar != null) actionBar.setDisplayHomeAsUpEnabled(true);
 
         Intent intent = getIntent();
-        String patient_username = intent.getStringExtra(PatientLoginActivity.USERNAME_INTENT);
+        String patient_username = intent.getStringExtra("USERNAME_INTENT");
 
         ValueEventListener postListener = new ValueEventListener() {
 
@@ -81,5 +78,4 @@ public class PatientPreviousDoctorsActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
 }

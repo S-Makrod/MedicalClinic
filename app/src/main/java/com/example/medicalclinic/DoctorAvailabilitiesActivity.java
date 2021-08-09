@@ -23,7 +23,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class DoctorAvailabilitiesActivity extends AppCompatActivity {
-
     String doctor_username;
     private EditText date;
     private String availability;
@@ -40,7 +39,7 @@ public class DoctorAvailabilitiesActivity extends AppCompatActivity {
         if(actionBar != null) actionBar.setDisplayHomeAsUpEnabled(true);
 
         Intent intent = getIntent();
-        doctor_username = intent.getStringExtra(DoctorMainActivity.USERNAME_INTENT);
+        doctor_username = intent.getStringExtra("DOC_USERNAME_INTENT");
 
         TextView availabilitiesTextView = findViewById(R.id.textView15);
 

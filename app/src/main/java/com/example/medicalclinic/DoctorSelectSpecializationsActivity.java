@@ -13,8 +13,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DoctorSelectSpecializationsActivity extends AppCompatActivity {
-    public static final String SPECIALIZATIONS_INTENT = "specializations";
-
     private List<String> specializations;
     private String chosenSpecializations;
     private StringBuffer displaySelectedSpecializations;
@@ -49,7 +47,7 @@ public class DoctorSelectSpecializationsActivity extends AppCompatActivity {
         }
         else {
             Intent intent = new Intent(this, DoctorSignUpActivity.class);
-            intent.putExtra(SPECIALIZATIONS_INTENT, chosenSpecializations);
+            intent.putExtra("SPECIALIZATIONS_INTENT", chosenSpecializations);
             startActivity(intent);
         }
     }

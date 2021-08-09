@@ -22,8 +22,6 @@ import java.util.ArrayList;
 
 public class PatientBookDoctorActivity extends AppCompatActivity {
     Spinner sp;
-    public static final String DOC_USERNAME = "docusername";
-    public static final String USERNAME_INTENT = "username";
     String user;
     ArrayList<String> docs;
     ArrayList<String> docUsers;
@@ -41,9 +39,9 @@ public class PatientBookDoctorActivity extends AppCompatActivity {
         if(actionBar != null) actionBar.setDisplayHomeAsUpEnabled(true);
 
         Intent intent = getIntent();
-        String gender = intent.getStringExtra(FilterDoctorActivity.FILTER_GENDER);
-        String specialist = intent.getStringExtra(FilterDoctorActivity.FILTER_SPECIALIZATION);
-        user = intent.getStringExtra(FilterDoctorActivity.USERNAME_INTENT);
+        String gender = intent.getStringExtra("FILTER_GENDER");
+        String specialist = intent.getStringExtra("FILTER_SPECIALIZATION");
+        user = intent.getStringExtra("USERNAME_INTENT");
 
         // Initialize Choices for Doctors
         docs = new ArrayList<>();
@@ -101,8 +99,8 @@ public class PatientBookDoctorActivity extends AppCompatActivity {
             Intent intent = new Intent(this, PatientDoctorAvailabilitiesActivity.class);
 
             String docUsername = docUsers.get(docs.indexOf(doc));
-            intent.putExtra(DOC_USERNAME, docUsername);
-            intent.putExtra(USERNAME_INTENT, user);
+            intent.putExtra("DOC_USERNAME_INTENT", docUsername);
+            intent.putExtra("USERNAME_INTENT", user);
             startActivity(intent);
         }
     }

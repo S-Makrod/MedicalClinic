@@ -23,9 +23,6 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class FilterDoctorActivity extends AppCompatActivity {
-    public static final String USERNAME_INTENT = "username";
-    public static final String FILTER_GENDER = "filter_gender";
-    public static final String FILTER_SPECIALIZATION = "filter_specialization";
     String patient_username;
 
     Spinner sp;
@@ -41,7 +38,7 @@ public class FilterDoctorActivity extends AppCompatActivity {
         if(actionBar != null) actionBar.setDisplayHomeAsUpEnabled(true);
 
         Intent intent = getIntent();
-        patient_username = intent.getStringExtra(PatientLoginActivity.USERNAME_INTENT);
+        patient_username = intent.getStringExtra("USERNAME_INTENT");
 
         // Initialize Choices for Specialization
         ArrayList<String> specs = new ArrayList<String>();
@@ -93,12 +90,12 @@ public class FilterDoctorActivity extends AppCompatActivity {
         else {
             Intent intent = new Intent(this, PatientBookDoctorActivity.class);
 
-            intent.putExtra(USERNAME_INTENT, patient_username);
+            intent.putExtra("USERNAME_INTENT", patient_username);
 
             String gender_filter = rb.getText().toString();
-            intent.putExtra(FILTER_GENDER, gender_filter);
+            intent.putExtra("FILTER_GENDER", gender_filter);
 
-            intent.putExtra(FILTER_SPECIALIZATION, spec_filter);
+            intent.putExtra("FILTER_SPECIALIZATION", spec_filter);
 
             startActivity(intent);
         }

@@ -22,7 +22,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class PatientSignUpActivity extends AppCompatActivity implements View.OnClickListener {
-
     private EditText editName, editDateOfBirth, editUsername, editPassword;
     private String name, username, dateOfBirth, password,gender;
     private Database<PatientUser> database;
@@ -43,7 +42,6 @@ public class PatientSignUpActivity extends AppCompatActivity implements View.OnC
     }
 
     public void signUp() {
-
         editName = (EditText) findViewById(R.id.name);
         editDateOfBirth = (EditText) findViewById(R.id.dateOfBirth);
         editUsername = (EditText) findViewById(R.id.username);

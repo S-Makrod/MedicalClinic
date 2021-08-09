@@ -17,7 +17,6 @@ import com.google.firebase.database.ValueEventListener;
 
 //View Classs for Doctor Login
 public class DoctorLoginActivity extends AppCompatActivity implements Contract.View {
-    public static final String USERNAME_INTENT = "username";
     private TextView doctorUserName,doctorPassword;
     private Contract.Presenter presenter;
     private Contract.Model model;
@@ -29,20 +28,13 @@ public class DoctorLoginActivity extends AppCompatActivity implements Contract.V
         setContentView(R.layout.activity_doctor_login);
         doctorUserName=(TextView)findViewById(R.id.doctorUserNameTextBox);
         doctorPassword=(TextView)findViewById(R.id.doctorPasswordTextBox);
-
-
-
-
     }
 
 
-    public void doctorSignUpButtonOnClick(View view)
-    {
+    public void doctorSignUpButtonOnClick(View view) {
         Intent intent=new Intent(this,DoctorSelectSpecializationsActivity.class);
         startActivity(intent);
     }
-
-
 
     @Override
     public void LoginButtonOnClick(android.view.View view) {
@@ -55,7 +47,7 @@ public class DoctorLoginActivity extends AppCompatActivity implements Contract.V
     public void loginSuccess(String message) {
         Toast.makeText(DoctorLoginActivity.this, message, Toast.LENGTH_LONG).show();
         Intent intent=new Intent(DoctorLoginActivity.this, DoctorMainActivity.class);
-        intent.putExtra(USERNAME_INTENT, model.getUsername());
+        intent.putExtra("DOC_USERNAME_INTENT", model.getUsername());
         startActivity(intent);
     }
 

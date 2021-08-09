@@ -25,9 +25,6 @@ import java.util.ArrayList;
 
 
 public class DoctorMainActivity extends AppCompatActivity {
-
-    public static final String USERNAME_INTENT = "username";
-    public static final String PATIENT_USERNAME_INTENT = "patient_username";
     String doctor_username;
     Spinner sp;
 
@@ -41,7 +38,7 @@ public class DoctorMainActivity extends AppCompatActivity {
         setTitle("Medical Clinic");
 
         Intent intent = getIntent();
-        doctor_username = intent.getStringExtra(DoctorLoginActivity.USERNAME_INTENT); // CHANGE INTENT
+        doctor_username = intent.getStringExtra("DOC_USERNAME_INTENT"); // CHANGE INTENT
 
         TextView doctor_display = findViewById(R.id.textView11);
         upcoming_appointment_list = new ArrayList<String>();
@@ -101,46 +98,36 @@ public class DoctorMainActivity extends AppCompatActivity {
         }
         else {
             Intent intent = new Intent(this, ViewPatientInfoActivity.class);
-            intent.putExtra(USERNAME_INTENT, doctor_username);
+            intent.putExtra("DOC_USERNAME_INTENT", doctor_username);
 
             int indexOfPatient = upcoming_appointment_list.indexOf(patient);
             String patient_username = patient_usernames_list.get(indexOfPatient);
-            intent.putExtra(PATIENT_USERNAME_INTENT, patient_username);
+            intent.putExtra("USERNAME_INTENT", patient_username);
 
             startActivity(intent);
         }
     }
 
     public void doctorLeaveClinic(View view) {
-
-        Intent intent = getIntent();
-
         Intent sendDoctor = new Intent(this, DeleteDoctorActivity.class);
-        sendDoctor.putExtra(USERNAME_INTENT, doctor_username);
+        sendDoctor.putExtra("DOC_USERNAME_INTENT", doctor_username);
         startActivity(sendDoctor);
     }
 
     public void doctorLogOutOnClick(View view) {
-
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 
     public void doctorRefreshOnClick(View view) {
-
-        Intent intent = getIntent();
-
         Intent sendDoctor = new Intent(this, DoctorMainActivity.class);
-        sendDoctor.putExtra(USERNAME_INTENT, doctor_username);
+        sendDoctor.putExtra("DOC_USERNAME_INTENT", doctor_username);
         startActivity(sendDoctor);
     }
 
     public void doctorAvailabilitiesOnClick(View view) {
-        Intent intent = getIntent();
-
         Intent sendDoctor = new Intent(this, DoctorAvailabilitiesActivity.class);
-        sendDoctor.putExtra(USERNAME_INTENT, doctor_username);
+        sendDoctor.putExtra("DOC_USERNAME_INTENT", doctor_username);
         startActivity(sendDoctor);
     }
-
 }

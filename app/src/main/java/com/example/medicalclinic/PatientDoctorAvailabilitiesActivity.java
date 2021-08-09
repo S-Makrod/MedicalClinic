@@ -31,7 +31,6 @@ public class PatientDoctorAvailabilitiesActivity extends AppCompatActivity {
     ArrayList<String> appointments;
     String doctor;
     String username;
-    public static final String USERNAME_INTENT = "username";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,8 +44,8 @@ public class PatientDoctorAvailabilitiesActivity extends AppCompatActivity {
         if(actionBar != null) actionBar.setDisplayHomeAsUpEnabled(true);
 
         Intent intent = getIntent();
-        doctor = intent.getStringExtra(PatientBookDoctorActivity.DOC_USERNAME);
-        username = intent.getStringExtra(PatientBookDoctorActivity.USERNAME_INTENT);
+        doctor = intent.getStringExtra("DOC_USERNAME_INTENT");
+        username = intent.getStringExtra("USERNAME_INTENT");
         appointments = new ArrayList<>();
         appointments.add("Select An Appointment");
 
@@ -92,7 +91,7 @@ public class PatientDoctorAvailabilitiesActivity extends AppCompatActivity {
             Database.ref.child("doctors").child(doctor).child("availabilities").child(appointment).removeValue();
 
             Intent intent = new Intent(this, PatientMainActivity.class);
-            intent.putExtra(USERNAME_INTENT, username);
+            intent.putExtra("USERNAME_INTENT", username);
             startActivity(intent);
         }
     }

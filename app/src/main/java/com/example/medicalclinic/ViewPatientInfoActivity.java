@@ -17,7 +17,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class ViewPatientInfoActivity extends AppCompatActivity {
-
     String patient_username;
 
     @Override
@@ -32,7 +31,7 @@ public class ViewPatientInfoActivity extends AppCompatActivity {
         if(actionBar != null) actionBar.setDisplayHomeAsUpEnabled(true);
 
         Intent intent = getIntent();
-        patient_username = intent.getStringExtra(DoctorMainActivity.PATIENT_USERNAME_INTENT);
+        patient_username = intent.getStringExtra("USERNAME_INTENT");
         TextView patientInfoTextView = findViewById(R.id.textView6);
         TextView patientPastDoctorsTextView = findViewById(R.id.textView9);
 

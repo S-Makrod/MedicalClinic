@@ -18,7 +18,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class DeleteDoctorActivity extends AppCompatActivity {
-    public static final String USERNAME_INTENT = "username";
     private String docUsername;
 
     @Override
@@ -28,12 +27,12 @@ public class DeleteDoctorActivity extends AppCompatActivity {
         setTitle("Medical Clinic");
 
         Intent usernameIntent = getIntent();
-        docUsername = usernameIntent.getStringExtra(DoctorMainActivity.USERNAME_INTENT);
+        docUsername = usernameIntent.getStringExtra("DOC_USERNAME_INTENT");
     }
 
     public void dismissDeleteAccountOnClick(View v) {
         Intent dismissIntent = new Intent(this, DoctorMainActivity.class);
-        dismissIntent.putExtra(USERNAME_INTENT, docUsername);
+        dismissIntent.putExtra("DOC_USERNAME_INTENT", docUsername);
         startActivity(dismissIntent);
     }
 

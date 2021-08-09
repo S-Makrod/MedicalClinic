@@ -42,7 +42,7 @@ public class DoctorSignUpActivity extends AppCompatActivity implements View.OnCl
         signUp.setOnClickListener(this);
 
         Intent specializationIntent = getIntent();
-        String getSpecializations = specializationIntent.getStringExtra(DoctorSelectSpecializationsActivity.SPECIALIZATIONS_INTENT);
+        String getSpecializations = specializationIntent.getStringExtra("SPECIALIZATIONS_INTENT");
         String[] parseSpecializations = getSpecializations.split(";");
         specializationsList = Arrays.asList(parseSpecializations);
 

@@ -13,8 +13,10 @@ public class LoginPresenter implements Contract.Presenter{
             return "Username does not exist!";
         } else if(n == 3){
             return "Invalid password!";
-        } else {
+        } else if(n == 4){
             return "Please Enter a Username and Password!";
+        } else {
+            return "Error Data Could Not Load!";
         }
     }
 }
