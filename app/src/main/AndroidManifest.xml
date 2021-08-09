@@ -19,6 +19,17 @@
             android:name=".DoctorMainActivity"
             android:exported="true" />
         <activity
+            android:name=".DoctorSignUpActivity"
+            android:exported="true"
+            android:parentActivityName=".DoctorSelectSpecializationsActivity" />
+        <activity
+            android:name=".DoctorSelectSpecializationsActivity"
+            android:exported="true"
+            android:parentActivityName=".DoctorLoginActivity" />
+        <activity
+            android:name=".DeleteDoctorActivity"
+            android:exported="true" />
+        <activity
             android:name=".PatientPreviousDoctorsActivity"
             android:exported="true" />
         <activity

@@ -115,7 +115,7 @@ public class DoctorMainActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-        Intent sendDoctor = new Intent(this, MainActivity.class); // CHANGE INTENT
+        Intent sendDoctor = new Intent(this, DeleteDoctorActivity.class);
         sendDoctor.putExtra(USERNAME_INTENT, doctor_username);
         startActivity(sendDoctor);
     }

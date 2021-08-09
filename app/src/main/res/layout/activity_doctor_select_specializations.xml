@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".DoctorSelectSpecializationsActivity">
+
+    <TextView
+        android:id="@+id/selectSpecializationScreenTitle"
+        android:layout_width="316dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="76dp"
+        android:fontFamily="@font/aclonica"
+        android:text="@string/select_specialization"
+        android:textColor="@color/design_default_color_on_secondary"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/selectSpecializationScreenDescription"
+        android:layout_width="339dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/aclonica"
+        android:text="@string/select_specialization_description"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/selectSpecializationScreenTitle" />
+
+    <ScrollView
+        android:id="@+id/specializationScrollView"
+        android:layout_width="352dp"
+        android:layout_height="406dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/selectSpecializationScreenDescription">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <CheckBox
+                android:id="@+id/allergy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/allergy_immunology" />
+
+            <CheckBox
+                android:id="@+id/anesthesiology"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/anesthesiology" />
+
+            <CheckBox
+                android:id="@+id/cardiology"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/cardiology" />
+
+            <CheckBox
+                android:id="@+id/dermatology"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/dermatology" />
+
+            <CheckBox
+                android:id="@+id/emergencyMedicine"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/emergency_medicine" />
+
+            <CheckBox
+                android:id="@+id/endocrinology"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/endocrinology_metabolism" />
+
+            <CheckBox
+                android:id="@+id/familyMedicine"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/family_medicine" />
+
+            <CheckBox
+                android:id="@+id/gastroenterology"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/gastroenterology" />
+
+            <CheckBox
+                android:id="@+id/geriatricMedicine"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/geriatric_medicine" />
+
+            <CheckBox
+                android:id="@+id/hematology"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/hematology" />
+
+            <CheckBox
+                android:id="@+id/neurology"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/neurology" />
+
+            <CheckBox
+                android:id="@+id/obstetrics"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/obstetrics_gynecology" />
+
+            <CheckBox
+                android:id="@+id/ophthalmology"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/ophthalmology" />
+
+            <CheckBox
+                android:id="@+id/orthopedic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/orthopedic_surgery" />
+
+            <CheckBox
+                android:id="@+id/pathology"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/pathology" />
+
+            <CheckBox
+                android:id="@+id/pediatrics"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/pediatrics" />
+
+            <CheckBox
+                android:id="@+id/physicalMedicine"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/physical_medicine_rehabilitation" />
+
+            <CheckBox
+                android:id="@+id/psychiatry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/psychiatry" />
+
+            <CheckBox
+                android:id="@+id/radiationOncology"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/radiation_oncology" />
+
+            <CheckBox
+                android:id="@+id/respirology"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/respirology" />
+
+            <CheckBox
+                android:id="@+id/rheumatology"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/rheumatology" />
+
+            <CheckBox
+                android:id="@+id/urology"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/urology" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/confirmSpecialization"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:onClick="selectSpecializationOnClick"
+        android:text="@string/confirm"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/specializationScrollView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -38,8 +38,8 @@ public class DoctorLoginActivity extends AppCompatActivity implements Contract.V
 
     public void doctorSignUpButtonOnClick(View view)
     {
-        //Intent intent=new Intent(this,DoctorSelectSpecializationsActivity.class);
-        //startActivity(intent);
+        Intent intent=new Intent(this,DoctorSelectSpecializationsActivity.class);
+        startActivity(intent);
     }
 
 
