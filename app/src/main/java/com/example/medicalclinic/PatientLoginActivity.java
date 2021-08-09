@@ -56,4 +56,12 @@ public class PatientLoginActivity extends AppCompatActivity implements Contract.
     public void loginFailure(String message) {
         Toast.makeText(PatientLoginActivity.this, message, Toast.LENGTH_LONG).show();
     }
+
+    public String getUsername() {
+        return patientUserName.getText().toString();
+    }
+
+    public String getPassword() {
+        return patientPassword.getText().toString();
+    }
 }
