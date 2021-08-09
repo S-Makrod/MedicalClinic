@@ -50,13 +50,10 @@ public class Patient extends PatientUser{
 
     }
 
-
-
     @Override
     public void update_appointments(String patient_username) throws ParseException{
 
         Date current = new Date(System.currentTimeMillis());
-        //DatabaseReference mPostReference = FirebaseDatabase.getInstance().getReference("patients/" + patient_username + "/upcoming_appointments");
         ValueEventListener postListener = new ValueEventListener() {
 
             @Override

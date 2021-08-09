@@ -20,6 +20,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 
 
@@ -56,6 +57,13 @@ public class DoctorMainActivity extends AppCompatActivity {
 
                 String doctor_name = dataSnapshot.child("doctors").child(doctor_username).child("name").getValue().toString();
                 doctor_display.setText("Dr. " + doctor_name);
+
+                Doctor doctor_update = new Doctor();
+                try {
+                    doctor_update.update_appointments(doctor_username);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
 
                 TextView appointment_display = findViewById(R.id.textView13);
                 String appointment_list = "";

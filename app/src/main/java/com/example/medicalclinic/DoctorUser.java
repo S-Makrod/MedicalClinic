@@ -1,5 +1,7 @@
 package com.example.medicalclinic;
 
+import java.text.ParseException;
+import java.util.Date;
 import java.util.List;
 
 abstract class DoctorUser extends User {
@@ -8,13 +10,13 @@ abstract class DoctorUser extends User {
     List<Appointment> weekly_availabilities; //List of dates like Java.Date()
     List<AppointmentInfo> patients;				//List of patient id and name no need to have other info
 
-    public abstract void list(); //List upcoming appointments UNSURE OF IMPLEMENTATION
+    public abstract void book(String doc_username, Date d, String patient_username) throws ParseException; //Book appointments
 
-    public abstract void update_appointments();
+    public abstract void update_appointments(String doctor_username) throws ParseException;
 
     public abstract List<Appointment> getUpcoming_appointments();
 
-    public abstract void setUpcoming_appointments(List<String> upcoming_appointments);
+    public abstract void setUpcoming_appointments(List<Appointment> upcoming_appointments);
 
     public abstract List<String> getSpecializations();
 

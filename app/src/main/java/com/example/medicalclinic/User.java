@@ -21,5 +21,5 @@ public abstract class User {
 
     public abstract void setUsername(String username);
 
-    public abstract void update_appointments(String patient_username) throws ParseException;
+    public abstract void update_appointments(String username) throws ParseException;
 }
